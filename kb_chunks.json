@@ -1,0 +1,674 @@
+[
+  {
+    "chunk_id": "CK-01",
+    "text": "מסמך זה מהווה מקור הידע היחיד והקנוני עבור סוכן הבינה המלאכותית המלווה תרגול בפלטפורמת TANGO. מיועד לשימוש פנימי בלבד.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "document_purpose",
+      "module": "cross",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "ייעוד המסמך" }],
+      "tags": ["exercise:emotion_naming_v1", "boundary:closed_knowledge", "doc:canonical"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 99,
+        "offer_emotion_options_without_diagnosis": 99,
+        "anchor_choice_or_offer_minimal_balanced_action": 99
+      },
+      "retrieval": { "default_include": true, "boost": 1.4 }
+    }
+  },
+  {
+    "chunk_id": "CK-02",
+    "text": "העבודה בפלטפורמה היא אינדיבידואלית בלבד. אין הנחה של עבודה זוגית סינכרונית, אין משתמש נוסף, ואין תרגול זוגי בפועל בתוך המערכת.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "core_assumptions",
+      "module": "cross",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "הנחות יסוד מחייבות" }],
+      "tags": ["exercise:emotion_naming_v1", "constraint:individual_only", "constraint:no_sync_couple"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 90,
+        "offer_emotion_options_without_diagnosis": 90,
+        "anchor_choice_or_offer_minimal_balanced_action": 35
+      },
+      "retrieval": { "default_include": true, "boost": 1.25 }
+    }
+  },
+  {
+    "chunk_id": "CK-03",
+    "text": "אין הוספת ידע חיצוני מעבר לחומרים שסופקו. אין פרשנות תיאורטית מעבר לנדרש לצורך פעולה תהליכית של סוכן AI.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "core_assumptions",
+      "module": "cross",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "הנחות יסוד מחייבות – גבולות ידע" }],
+      "tags": ["exercise:emotion_naming_v1", "boundary:closed_knowledge", "boundary:no_extra_theory"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 95,
+        "offer_emotion_options_without_diagnosis": 95,
+        "anchor_choice_or_offer_minimal_balanced_action": 95
+      },
+      "retrieval": { "default_include": true, "boost": 1.35 }
+    }
+  },
+  {
+    "chunk_id": "CK-04",
+    "text": "עקרון־על מנחה: אחריות כבסיס לחופש, חוסן ותחושת ביטחון.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "meta_principle_responsibility",
+      "module": "cross",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "עקרון־על מנחה" }],
+      "tags": ["exercise:emotion_naming_v1", "concept:responsibility", "language:responsibility_not_blame"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 25,
+        "offer_emotion_options_without_diagnosis": 25,
+        "anchor_choice_or_offer_minimal_balanced_action": 4
+      },
+      "retrieval": { "default_include": false, "boost": 1.2 }
+    }
+  },
+  {
+    "chunk_id": "CK-05",
+    "text": "האדם אינו אשם בעברו, אך אחראי על עמדותיו, כוונותיו ופעולותיו בהווה.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "meta_principle_responsibility",
+      "module": "cross",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "עקרון־על מנחה – אשמה/אחריות" }],
+      "tags": ["exercise:emotion_naming_v1", "concept:responsibility_not_blame", "language:responsibility_not_blame"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 18,
+        "offer_emotion_options_without_diagnosis": 18,
+        "anchor_choice_or_offer_minimal_balanced_action": 6
+      },
+      "retrieval": { "default_include": false, "boost": 1.15 }
+    }
+  },
+  {
+    "chunk_id": "CK-06",
+    "text": "האחריות כוללת הבחנה בין מה שבשליטתי, בשליטתי החלקית, ומה שאינו בשליטתי כלל.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "meta_principle_responsibility",
+      "module": "cross",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "עקרון־על מנחה – הבחנה בשליטה" }],
+      "tags": ["exercise:emotion_naming_v1", "concept:control_distinction"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 35,
+        "offer_emotion_options_without_diagnosis": 35,
+        "anchor_choice_or_offer_minimal_balanced_action": 5
+      },
+      "retrieval": { "default_include": true, "boost": 1.25 }
+    }
+  },
+  {
+    "chunk_id": "CK-07",
+    "text": "מבנה המודל הקליני CLEAR: ערכים (Living by Values), Reflection & Awareness (תשומת לב ורפלקציה), Regulation (ויסות), Connection (חיבור), Reality Embracing (קבלה, תקווה ושליטה).",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "CLEAR_overview",
+      "module": "cross",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "מבנה המודל הקליני CLEAR" }],
+      "tags": ["exercise:emotion_naming_v1", "model:CLEAR"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 60,
+        "offer_emotion_options_without_diagnosis": 60,
+        "anchor_choice_or_offer_minimal_balanced_action": 60
+      },
+      "retrieval": { "default_include": false, "boost": 1.0 }
+    }
+  },
+  {
+    "chunk_id": "CK-08",
+    "text": "המודל תהליכי ולא סימפטומטי: העבודה אינה מכוונת להעלמת סימפטומים אלא לפיתוח גמישות, אחריות ופעולה מבוססת ערכים.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "CLEAR_overview",
+      "module": "cross",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "המודל תהליכי ולא סימפטומטי" }],
+      "tags": ["exercise:emotion_naming_v1", "language:process_not_symptom", "module:values"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 45,
+        "offer_emotion_options_without_diagnosis": 45,
+        "anchor_choice_or_offer_minimal_balanced_action": 18
+      },
+      "retrieval": { "default_include": false, "boost": 1.05 }
+    }
+  },
+  {
+    "chunk_id": "CK-09",
+    "text": "מעבר מ־Reaction Stress ל־Response Stress (אוטומט → בחירה).",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "development_processes_self",
+      "module": "cross",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "14 תהליכי ההתפתחות – האדם מול עצמו" }],
+      "tags": ["exercise:emotion_naming_v1", "concept:reaction_vs_response", "concept:choice_point"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 5,
+        "offer_emotion_options_without_diagnosis": 15,
+        "anchor_choice_or_offer_minimal_balanced_action": 3
+      },
+      "retrieval": { "default_include": true, "boost": 1.25 }
+    }
+  },
+  {
+    "chunk_id": "CK-10",
+    "text": "מעבר מהרצון להרגיש טוב מידית להסכמה לשאת רגש לא נעים למען ערך.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "development_processes_self",
+      "module": "cross",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "14 תהליכי ההתפתחות – האדם מול עצמו" }],
+      "tags": ["exercise:emotion_naming_v1", "concept:tolerate_discomfort_for_value", "module:values"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 40,
+        "offer_emotion_options_without_diagnosis": 40,
+        "anchor_choice_or_offer_minimal_balanced_action": 16
+      },
+      "retrieval": { "default_include": false, "boost": 1.05 }
+    }
+  },
+  {
+    "chunk_id": "CK-11",
+    "text": "מעבר מחיים מוכווני מטרות טוטאליות לחיים לפי ערכים.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "development_processes_self",
+      "module": "values",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "14 תהליכי ההתפתחות – האדם מול עצמו" }],
+      "tags": ["exercise:emotion_naming_v1", "module:values", "concept:live_by_values"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 55,
+        "offer_emotion_options_without_diagnosis": 55,
+        "anchor_choice_or_offer_minimal_balanced_action": 14
+      },
+      "retrieval": { "default_include": false, "boost": 1.05 }
+    }
+  },
+  {
+    "chunk_id": "CK-12",
+    "text": "מודולה 1 – ערכים (Living by Values): תכלית – יצירת מצפן פעולה.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "module_values",
+      "module": "values",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "פירוט המודולות – ערכים" }],
+      "tags": ["exercise:emotion_naming_v1", "module:values", "concept:compass"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 50,
+        "offer_emotion_options_without_diagnosis": 50,
+        "anchor_choice_or_offer_minimal_balanced_action": 6
+      },
+      "retrieval": { "default_include": true, "boost": 1.2 }
+    }
+  },
+  {
+    "chunk_id": "CK-13",
+    "text": "ערכים מוגדרים ככיווני חיים המבטאים אכפתיות, אחריות וחיבור – לא כמצבים רגשיים ולא כתוצאות.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "module_values",
+      "module": "values",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "ערכים – הגדרה" }],
+      "tags": ["exercise:emotion_naming_v1", "module:values", "tag_internal:values_direction", "concept:values_are_directions_not_outcomes"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 70,
+        "offer_emotion_options_without_diagnosis": 70,
+        "anchor_choice_or_offer_minimal_balanced_action": 12
+      },
+      "retrieval": { "default_include": false, "boost": 1.05 }
+    }
+  },
+  {
+    "chunk_id": "CK-14",
+    "text": "עקרונות ערכים: ערכים אינם מטרות; ערכים מנחים פעולה גם כשהדרך כרוכה באי־נוחות.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "module_values",
+      "module": "values",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "ערכים – עקרונות" }],
+      "tags": ["exercise:emotion_naming_v1", "module:values", "concept:values_not_goals", "concept:values_through_discomfort"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 45,
+        "offer_emotion_options_without_diagnosis": 45,
+        "anchor_choice_or_offer_minimal_balanced_action": 10
+      },
+      "retrieval": { "default_include": false, "boost": 1.1 }
+    }
+  },
+  {
+    "chunk_id": "CK-15",
+    "text": "עקרון: הבחירה בערכים קודמת לוויסות.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "module_values",
+      "module": "values",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "ערכים – עקרונות (הבחירה בערכים קודמת לוויסות)" }],
+      "tags": ["exercise:emotion_naming_v1", "module:values", "module:regulation", "concept:values_before_regulation"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 80,
+        "offer_emotion_options_without_diagnosis": 80,
+        "anchor_choice_or_offer_minimal_balanced_action": 11
+      },
+      "retrieval": { "default_include": false, "boost": 1.05 }
+    }
+  },
+  {
+    "chunk_id": "CK-16",
+    "text": "מודולה 2 – Reflection & Awareness (תשומת לב): תכלית – זיהוי נקודת הבחירה.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "module_awareness",
+      "module": "awareness",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "Reflection & Awareness – תכלית" }],
+      "tags": ["exercise:emotion_naming_v1", "module:awareness", "concept:choice_point"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 1,
+        "offer_emotion_options_without_diagnosis": 3,
+        "anchor_choice_or_offer_minimal_balanced_action": 20
+      },
+      "retrieval": { "default_include": true, "boost": 1.3 }
+    }
+  },
+  {
+    "chunk_id": "CK-17",
+    "text": "עקרון: רגש חזק הוא סימן לצומת.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "module_awareness",
+      "module": "awareness",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "Reflection & Awareness – עקרונות" }],
+      "tags": ["exercise:emotion_naming_v1", "module:awareness", "concept:strong_emotion_as_signal"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 2,
+        "offer_emotion_options_without_diagnosis": 4,
+        "anchor_choice_or_offer_minimal_balanced_action": 30
+      },
+      "retrieval": { "default_include": true, "boost": 1.25 }
+    }
+  },
+  {
+    "chunk_id": "CK-18",
+    "text": "עקרון: תשומת לב יוצרת מרחק שמאפשר בחירה.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "module_awareness",
+      "module": "awareness",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "Reflection & Awareness – עקרונות" }],
+      "tags": ["exercise:emotion_naming_v1", "module:awareness", "concept:distance_enables_choice"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 3,
+        "offer_emotion_options_without_diagnosis": 6,
+        "anchor_choice_or_offer_minimal_balanced_action": 8
+      },
+      "retrieval": { "default_include": false, "boost": 1.15 }
+    }
+  },
+  {
+    "chunk_id": "CK-19",
+    "text": "עקרון: לא בכל מצב נדרש ויסות; לעיתים תשומת לב מספיקה.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "module_awareness",
+      "module": "awareness",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "Reflection & Awareness – עקרונות (וויסות לא תמיד נדרש)" }],
+      "tags": ["exercise:emotion_naming_v1", "module:awareness", "module:regulation", "concept:awareness_may_be_enough"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 6,
+        "offer_emotion_options_without_diagnosis": 6,
+        "anchor_choice_or_offer_minimal_balanced_action": 18
+      },
+      "retrieval": { "default_include": false, "boost": 1.1 }
+    }
+  },
+  {
+    "chunk_id": "CK-20",
+    "text": "מוקדי עבודה בתשומת לב: זיהוי דריכות פיזיולוגית לא מותאמת; זיהוי מעברים (עבודה→בית, מתח→קרבה); הבחנה בין המציאות לבין סיפור המוח.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "module_awareness",
+      "module": "awareness",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "Reflection & Awareness – מוקדי עבודה" }],
+      "tags": ["exercise:emotion_naming_v1", "module:awareness", "concept:physio_arousal", "concept:transitions", "concept:reality_vs_story"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 4,
+        "offer_emotion_options_without_diagnosis": 5,
+        "anchor_choice_or_offer_minimal_balanced_action": 22
+      },
+      "retrieval": { "default_include": false, "boost": 1.15 }
+    }
+  },
+  {
+    "chunk_id": "CK-21",
+    "text": "מודולה 3 – Regulation (ויסות): תכלית – לאפשר בחירה כאשר תשומת לב אינה מספיקה.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "module_regulation",
+      "module": "regulation",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "Regulation – תכלית" }],
+      "tags": ["exercise:emotion_naming_v1", "module:regulation", "concept:enable_choice"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 25,
+        "offer_emotion_options_without_diagnosis": 25,
+        "anchor_choice_or_offer_minimal_balanced_action": 1
+      },
+      "retrieval": { "default_include": true, "boost": 1.35 }
+    }
+  },
+  {
+    "chunk_id": "CK-22",
+    "text": "עקרון: ויסות אינו מיועד להרגעה כשלעצמה.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "module_regulation",
+      "module": "regulation",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "Regulation – עקרונות" }],
+      "tags": ["exercise:emotion_naming_v1", "module:regulation", "boundary:not_relaxation_goal"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 30,
+        "offer_emotion_options_without_diagnosis": 30,
+        "anchor_choice_or_offer_minimal_balanced_action": 7
+      },
+      "retrieval": { "default_include": false, "boost": 1.1 }
+    }
+  },
+  {
+    "chunk_id": "CK-23",
+    "text": "עקרון: ויסות נועד לאפשר פעולה מבוססת ערכים.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "module_regulation",
+      "module": "regulation",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "Regulation – עקרונות (פעולה מבוססת ערכים)" }],
+      "tags": ["exercise:emotion_naming_v1", "module:regulation", "module:values", "concept:values_based_action"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 20,
+        "offer_emotion_options_without_diagnosis": 20,
+        "anchor_choice_or_offer_minimal_balanced_action": 2
+      },
+      "retrieval": { "default_include": true, "boost": 1.25 }
+    }
+  },
+  {
+    "chunk_id": "CK-24",
+    "text": "תחומי ויסות: פיזיולוגי, רגשי, קוגניטיבי, ומיקוד קשב.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "module_regulation",
+      "module": "regulation",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "Regulation – תחומי ויסות" }],
+      "tags": ["exercise:emotion_naming_v1", "module:regulation", "concept:regulation_domains"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 70,
+        "offer_emotion_options_without_diagnosis": 70,
+        "anchor_choice_or_offer_minimal_balanced_action": 15
+      },
+      "retrieval": { "default_include": false, "boost": 1.0 }
+    }
+  },
+  {
+    "chunk_id": "CK-25",
+    "text": "הנחת יסוד: רגש לא נעים הוא מצפן – לא תקלה.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "module_regulation",
+      "module": "regulation",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "Regulation – הנחת יסוד" }],
+      "tags": ["exercise:emotion_naming_v1", "concept:emotion_as_compass", "module:regulation"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 12,
+        "offer_emotion_options_without_diagnosis": 14,
+        "anchor_choice_or_offer_minimal_balanced_action": 17
+      },
+      "retrieval": { "default_include": false, "boost": 1.1 }
+    }
+  },
+  {
+    "chunk_id": "CK-26",
+    "text": "המאמץ לתקף את העצמי יכול להתבצע בשני כיוונים: פירוד (השוואה, שליטה, ריצוי או תוקפנות) או חיבור (פיתוח מידות, אחריות, שייכות ומשמעות בקשר עם האחר).",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "human_problem_and_directions",
+      "module": "connection",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "הבעיה האנושית הבסיסית – פירוד מול חיבור" }],
+      "tags": ["exercise:emotion_naming_v1", "concept:separation_vs_connection", "module:connection"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 85,
+        "offer_emotion_options_without_diagnosis": 85,
+        "anchor_choice_or_offer_minimal_balanced_action": 22
+      },
+      "retrieval": { "default_include": false, "boost": 1.0 }
+    }
+  },
+  {
+    "chunk_id": "CK-27",
+    "text": "המודל של TANGO פועל באופן עקבי בכיוון החיבור.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "human_problem_and_directions",
+      "module": "connection",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "הבעיה האנושית הבסיסית – כיוון פעולה" }],
+      "tags": ["exercise:emotion_naming_v1", "concept:connection_direction", "module:connection"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 95,
+        "offer_emotion_options_without_diagnosis": 95,
+        "anchor_choice_or_offer_minimal_balanced_action": 24
+      },
+      "retrieval": { "default_include": false, "boost": 1.0 }
+    }
+  },
+  {
+    "chunk_id": "CK-28",
+    "text": "Reality Embracing – מוקד עבודה: הבחנה בין אשמה לאחריות.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "module_reality",
+      "module": "reality",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "Reality Embracing – מוקדי עבודה" }],
+      "tags": ["exercise:emotion_naming_v1", "module:reality", "concept:responsibility_not_blame"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 65,
+        "offer_emotion_options_without_diagnosis": 65,
+        "anchor_choice_or_offer_minimal_balanced_action": 9
+      },
+      "retrieval": { "default_include": false, "boost": 1.15 }
+    }
+  },
+  {
+    "chunk_id": "CK-29",
+    "text": "Reality Embracing – מוקד עבודה: ויתור על תביעה מהמציאות.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "module_reality",
+      "module": "reality",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "Reality Embracing – מוקדי עבודה" }],
+      "tags": ["exercise:emotion_naming_v1", "module:reality", "concept:release_demands"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 80,
+        "offer_emotion_options_without_diagnosis": 80,
+        "anchor_choice_or_offer_minimal_balanced_action": 19
+      },
+      "retrieval": { "default_include": false, "boost": 1.0 }
+    }
+  },
+  {
+    "chunk_id": "CK-30",
+    "text": "Reality Embracing – מוקד עבודה: מיקוד בהווה עם גמישות עבר–עתיד.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "module_reality",
+      "module": "reality",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "Reality Embracing – מוקדי עבודה" }],
+      "tags": ["exercise:emotion_naming_v1", "module:reality", "concept:present_flexibility"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 22,
+        "offer_emotion_options_without_diagnosis": 22,
+        "anchor_choice_or_offer_minimal_balanced_action": 21
+      },
+      "retrieval": { "default_include": false, "boost": 1.0 }
+    }
+  },
+  {
+    "chunk_id": "CK-31",
+    "text": "גבולות מקצועיים לסוכן ה-AI: אינו מטפל, אינו מאבחן, אינו מפרש מעבר למה שהוגדר במודל, ואינו יוצר נרטיב חדש למשתמש. תפקידו לשקף תהליכים ולהחזיר לבחירה, אחריות ופעולה.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "agent_professional_boundaries",
+      "module": "cross",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "גבולות מקצועיים לסוכן ה-AI" }],
+      "tags": ["exercise:emotion_naming_v1", "boundary:not_therapy", "boundary:no_diagnosis", "language:process_not_outcome"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 14,
+        "offer_emotion_options_without_diagnosis": 1,
+        "anchor_choice_or_offer_minimal_balanced_action": 14
+      },
+      "retrieval": { "default_include": true, "boost": 1.35 }
+    }
+  },
+  {
+    "chunk_id": "CK-32",
+    "text": "עקרונות שפה מחייבים: שפה של אחריות, לא אשמה. שפה תהליכית, לא תוצאתית. שפה שמחזיקה מורכבות ולא פתרונות קסם. שפה שאינה מתייגת פתולוגית.",
+    "metadata": {
+      "doc_id": "tango_canonical_knowledge_v1",
+      "doc_type": "canonical",
+      "version": "v1",
+      "language": "he",
+      "exercise_ids": ["emotion_naming_v1"],
+      "section": "language_rules",
+      "module": "cross",
+      "canonical_refs": [{ "source": "canonical_pdf", "note": "עקרונות שפה מחייבים" }],
+      "tags": ["exercise:emotion_naming_v1", "language:responsibility_not_blame", "language:process_not_outcome", "language:no_pathologizing"],
+      "intent_priority": {
+        "identify_dominant_emotion_from_event": 6,
+        "offer_emotion_options_without_diagnosis": 2,
+        "anchor_choice_or_offer_minimal_balanced_action": 12
+      },
+      "retrieval": { "default_include": true, "boost": 1.3 }
+    }
+  }
+]
