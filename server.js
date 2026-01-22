@@ -123,143 +123,79 @@ function classifyRetrievalStrength(top1Score) {
   if (top1Score >= MIN_SCORE_WEAK) return "weak";
   return "none";
 }
-
-// ---- Endpoint ----
+// ---- ה-Endpoint החדש והמשופר ----
 app.post("/tango/ai/coach_message", async (req, res) => {
   try {
-
-    // ---- Simple auth: require static token from Bubble ----
+    // אימות מול באבל
     if (MIDDLEWARE_TOKEN) {
       const auth = req.headers["authorization"] || "";
       const ok = auth === `Bearer ${MIDDLEWARE_TOKEN}` || auth === MIDDLEWARE_TOKEN;
-      if (!ok) {
-        return res.status(401).json({ error: "Unauthorized" });
-      }
+      if (!ok) return res.status(401).json({ error: "Unauthorized" });
     }
 
     const {
-      user_id,
-      session_id,
       exercise_id,
-      step_number,
       chat_intent,
       user_message,
-      user_inputs_so_far,
-      constraints
+      chat_history // רשימת הודעות קודמות מבאבל
     } = req.body || {};
 
-    // Minimal validation
-    if (!exercise_id || !chat_intent || !user_message) {
-      return res.status(400).json({ error: "Missing required fields: exercise_id, chat_intent, user_message" });
-    }
-    if (exercise_id !== "emotion_naming_v1") {
-      return res.status(400).json({ error: "MVP only supports exercise_id=emotion_naming_v1 for now" });
+    // בדיקה בסיסית
+    if (!exercise_id || !user_message) {
+      return res.status(400).json({ error: "Missing required fields" });
     }
 
-    // Make sure chunk embeddings exist (MVP)
-    await ensureChunkEmbeddings();
+    // 1. חיפוש מידע ב-KB (החומר התיאורטי שלך)
+    // אנחנו נשתמש בחיפוש פשוט כדי להביא הקשר לסוכן
+    const relevantChunks = KB.filter(c => 
+      c.metadata?.exercise_ids?.includes(exercise_id)
+    ).slice(0, 5);
+    const kbContext = relevantChunks.map(c => c.text).join("\n");
 
-    // 1) Forced seeds
-    const forcedSeeds = pickForcedSeeds(chat_intent, exercise_id);
-    const forcedSeedIds = forcedSeeds.map((c) => c.chunk_id);
-
-    // 2) Vector search (complement)
-    const queryText = buildQueryText({ chat_intent, exercise_id, step_number, user_message });
-    const qVec = await embedText(queryText);
-
-    const candidates = KB.filter((c) => filterByExercise(c, exercise_id));
-    const scored = candidates.map((c) => {
-      const v = getChunkVec(c.chunk_id);
-      const score = v ? cosineSim(qVec, v) : 0;
-      return { chunk: c, score };
-    }).sort((a, b) => b.score - a.score);
-
-    const topHits = scored.slice(0, TOP_K_SEARCH);
-
-    const top1Score = topHits[0]?.score ?? 0;
-    const strength = classifyRetrievalStrength(top1Score);
-
-    // Only accept additional chunks if >= weak threshold
-    const vectorAccepted = topHits
-      .filter((h) => h.score >= MIN_SCORE_WEAK)
-      .map((h) => ({ chunk_id: h.chunk.chunk_id, score: h.score }));
-
-    // 3) Merge: seeds + up to (TOP_K_FINAL - seeds) unique from vector results
-    const final = [];
-    const seen = new Set();
-
-    for (const s of forcedSeeds) {
-      if (!seen.has(s.chunk_id)) { final.push(s); seen.add(s.chunk_id); }
-    }
-    for (const h of topHits) {
-      if (final.length >= TOP_K_FINAL) break;
-      if (h.score < MIN_SCORE_WEAK) break;
-      const cid = h.chunk.chunk_id;
-      if (seen.has(cid)) continue;
-      final.push(h.chunk);
-      seen.add(cid);
-    }
-
-    // 4) Build prompt for OpenAI Responses API
-    const kbContext = buildKbContext(final);
-
-    const ragRules =
-      "ידע סגור בלבד. ענה אך ורק על בסיס קטעי הידע (KB) המצורפים. " +
-      "אם אין בסיס מספיק ב-KB, אמור שאין לך בסיס מספיק בחומר הקנוני ושאל שאלה מבהירה אחת. " +
-      "אל תציג תגיות/IDs/ציטוטי KB למשתמש. " +
-      "שמור על טון אמפתי אך מכוון: נרמול קצר -> עצירה/הבחנה -> בחירה/צעד קטן. " +
-      "אין ייעוץ זוגי ישיר ואין עבודה זוגית סינכרונית בתוך האפליקציה.";
-
-    const appContext =
-      `הקשר אפליקטיבי: exercise_id=${exercise_id}, step=${step_number ?? "?"}, intent=${chat_intent}. ` +
-      `מגבלות: ${JSON.stringify(constraints || {})}. ` +
-      `קלט קודם: ${JSON.stringify(user_inputs_so_far || {})}.`;
-
-    // Responses API input supports a single string or structured input.
-    // We'll use a single input string that includes system/dev/user separation.
-    // (Alternatively you can use Chat Completions API messages.)
-    const input = [
-      `SYSTEM:\n${SYSTEM_PROMPT}`,
-      `DEVELOPER:\n${ragRules}\n${appContext}`,
-      `KB:\n${kbContext || "(no kb chunks)"}`,
-      `USER:\n${user_message}`
-    ].join("\n\n");
-
-    const openaiResp = await client.responses.create({
-      model: MODEL,
-      input
-    });
-
-    const assistantText = openaiResp.output_text || "";
-
-    // If retrieval is "none", we still allow answer — but it should follow the RAG rule and ask to clarify.
-    return res.json({
-      assistant_message: assistantText,
-      debug: {
-        user_id,
-        session_id,
-        exercise_id,
-        step_number,
-        chat_intent,
-        forced_seed_chunk_ids: forcedSeedIds,
-        retrieval: {
-          top1_score: top1Score,
-          strength,
-          vector_hits: vectorAccepted,
-          final_chunks_used: final.map((c) => c.chunk_id)
-        },
-        openai: {
-          model: MODEL,
-          response_id: openaiResp.id
-        }
+    // 2. בניית מערך ההודעות ל-AI
+    let messages = [
+      { 
+        role: "system", 
+        content: `${SYSTEM_PROMPT}\n\nחוקי ליווי: היה אמפתי מאוד. תן תיקוף (validation) לרגשות המשתמש. השתמש בידע מה-KB המצורף כדי להציע תובנות או תרגילים. אל תענה תשובות קצרות מדי. דבר בעברית.` 
+      },
+      { 
+        role: "system", 
+        content: `חומר תיאורטי רלוונטי:\n${kbContext}` 
       }
+    ];
+
+    // הוספת היסטוריית השיחה (הזיכרון)
+    if (chat_history && Array.isArray(chat_history)) {
+      chat_history.forEach(msg => {
+        if (msg.role && msg.content) messages.push(msg);
+      });
+    }
+
+    // הוספת ההודעה הנוכחית של המשתמש
+    messages.push({ role: "user", content: user_message });
+
+    // 3. קריאה ל-OpenAI
+    const completion = await client.chat.completions.create({
+      model: MODEL,
+      messages: messages,
+      max_tokens: 800,
+      temperature: 0.7
     });
+
+    const assistantText = completion.choices[0].message.content || "";
+
+    // 4. החזרת תשובה לבאבל
+    return res.json({
+      assistant_message: assistantText
+    });
+
   } catch (err) {
-    console.error(err);
-    return res.status(500).json({ error: "Server error", detail: String(err?.message || err) });
+    console.error("Server Error:", err);
+    return res.status(500).json({ error: "Server error", detail: err.message });
   }
 });
 
+// השורה שסוגרת את הקובץ ומפעילה אותו
 app.listen(PORT, () => {
-  console.log(`TANGO AI server listening on http://localhost:${PORT}`);
+  console.log(`TANGO AI server listening on port ${PORT}`);
 });
