@@ -174,12 +174,11 @@ app.post("/tango/ai/coach_message", async (req, res) => {
     // הוספת ההודעה הנוכחית של המשתמש
     messages.push({ role: "user", content: user_message });
 
-    // 3. קריאה ל-OpenAI
+  // 3. קריאה ל-OpenAI
     const completion = await client.chat.completions.create({
       model: MODEL,
       messages: messages,
-      max_completion_tokens: 800,
-      temperature: 0.7
+      max_completion_tokens: 800
     });
 
     const assistantText = completion.choices[0].message.content || "";
@@ -199,4 +198,5 @@ app.post("/tango/ai/coach_message", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`TANGO AI server listening on port ${PORT}`);
 });
+
 
