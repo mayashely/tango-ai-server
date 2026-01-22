@@ -178,7 +178,7 @@ app.post("/tango/ai/coach_message", async (req, res) => {
     const completion = await client.chat.completions.create({
       model: MODEL,
       messages: messages,
-      max_tokens: 800,
+      max_completion_tokens: 800,
       temperature: 0.7
     });
 
@@ -199,3 +199,4 @@ app.post("/tango/ai/coach_message", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`TANGO AI server listening on port ${PORT}`);
 });
+
